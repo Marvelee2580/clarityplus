@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap');
+
+body {
+    background: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    user-select: none;
+    color: #000000;
+}
+
+.heading {
+    font-family: 'Pacifico', cursive;
+    color: #008080;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 2rem;
+    text-align: center;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+input#search {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #008080;
+    border-radius: 20px;
+    outline: none;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+input#search:focus {
+    box-shadow: 0 0 10px #008080;
+    border-color: #005050;
+}
+
+button#print-btn {
+    background: #008080;
+    color: #ffffff;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+button#print-btn:hover {
+    background-color: #005050;
+    border-color: #008080;
+    transform: scale(1.1);
+}
+
+table {
+    width: 100%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeIn 2s ease-in-out;
+}
+
+th, td {
+    padding: 15px 20px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #008080;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+td {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+}
+
+td:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.subject::before {
+    content: attr(data-tutor);
+    position: absolute;
+    top: -25px;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+    color: #ffffff;
+    background: #008080;
+    padding: 5px;
+    border-radius: 3px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    text-align: center;
+}
+
+.subject:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+tr:nth-of-type(even) td {
+    background-color: #f9f9f9;
+}
+
+.alert {
+    color: #000000;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 128, 128, 0.95);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 90%;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.alert a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.alert .close-alert {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    table, th, td {
+        font-size: 14px;
+    }
+
+    .heading {
+        font-size: 28px;
+    }
+
+    button#print-btn {
+        padding: 6px 15px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+
+    .heading {
+        font-size: 24px;
+    }
+
+    button#print-btn {
+        top: 15px;
+        right: 15px;
+    }
+}
+
+/* Animation for rotating the Plus icon */
+@keyframes rotateFastSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#dark-mode-toggle.rotate {
+  animation: rotateFastSlow 1s ease-in-out;
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+  background: #121212;
+  color: #ffffff;
+}
+
+body.dark-theme .heading {
+  color: #80cbc4;
+  text-shadow: 2px 2px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme input#search {
+  background: #1e1e1e;
+  color: #ffffff;
+  border-color: #80cbc4;
+}
+
+body.dark-theme input#search:focus {
+  box-shadow: 0 0 10px #80cbc4;
+  border-color: #4caf50;
+}
+
+body.dark-theme button#print-btn {
+  background: #80cbc4;
+  color: #121212;
+}
+
+body.dark-theme button#print-btn:hover {
+  background: #4caf50;
+  color: #ffffff;
+}
+
+body.dark-theme table {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme th {
+  background: #4caf50;
+  color: #ffffff;
+}
+
+body.dark-theme td {
+  background: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-theme td:hover {
+  background: #333333;
+}
+
+body.dark-theme .subject::before {
+  background: #4caf50;
+}
