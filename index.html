@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timetable</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <!-- Header with Logo and Plus Icon -->
+  <h2 class="heading">
+  <img src="clarity-logo.jpg" alt="Clarity Tutorials Logo" style="width: 50px; vertical-align: middle; margin-right: 10px;"> 
+  CLARITY TUTORIALS PLUS<i class="fa-solid fa-plus" style="color: #FFD43B; margin-left: 5px; cursor: pointer;" id="dark-mode-toggle"></i>
+  <i class="fa-regular fa-lightbulb" style="color: #FFD43B; margin-left: 10px;"></i>
+</h2>
+
+  <!-- Search Input -->
+  <input type="text" id="search" placeholder="Search for subjects, tutors, or days...">
+  
+  <!-- Print Button -->
+  <button id="print-btn">
+    <i class="fa-solid fa-print"></i> Print Timetable
+  </button>
+
+  <!-- Timetable Table -->
+  <table id="timetable">
+    <tr>
+      <th><i class="fa-regular fa-calendar-days"></i> Day</th>
+      <th><i class="fa-solid fa-clock"></i> 8:00PM - 10:00PM</th>
+    </tr>
+    <tr>
+      <td>Monday</td>
+      <td class="subject" data-tutor="Tutor: GBES Academy"><i class="fa-solid fa-book"></i> English Language</td>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td class="subject" data-tutor="Tutor: Dr. Dev Marvelee"><i class="fa-solid fa-dna"></i> Biology</td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td class="subject" data-tutor="Tutor: Clarity Tutor"><i class="fa-solid fa-square-root-variable"></i> Mathematics</td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td class="subject" data-tutor="Tutor: De Ambassador"><i class="fa-solid fa-atom"></i> Physics</td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td class="subject" data-tutor="Tutor: Sir David"><i class="fa-solid fa-vial"></i> Chemistry</td>
+    </tr>
+    <tr>
+      <td>Saturday</td>
+      <td><i class="fa-solid fa-brain"></i> Clarity Hour/ Brainstorming Session</td>
+    </tr>
+    <tr>
+      <td>Sunday</td>
+      <td><i class="fa-solid fa-clipboard-question"></i> Quiz!!!</td>
+    </tr>
+  </table>
+
+  <!-- Tooltip -->
+  <div id="tooltip" class="tooltip"></div>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
